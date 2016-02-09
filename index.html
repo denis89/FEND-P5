@@ -2,17 +2,25 @@
 <html>
   <head>
    <link rel="stylesheet" type="text/css" href="style.css">
+   
   </head>
   <body>
-    <div id="map"></div>
+  
     
-  <form data-bind="submit: addItem">
-    New item:
-    <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
-    <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
-    <p>Your items:</p>
-    <select multiple="multiple" width="50" data-bind="options: items"> </select>
-</form>
+     
+    <div id="map"></div>
+ <!--   
+<input placeholder="Search" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off"> -->
+
+<ul data-bind="template: {name:'place', foreach:places}"></ul>
+
+
+<script type="text/html" id="place">
+  <li>
+    <strong data-bind="text: name"></strong> –
+  </li>
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js">
    </script>
    <script src="app.js"></script>
