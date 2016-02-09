@@ -3,8 +3,13 @@
   <head>
     <style type="text/css">
       html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
-
+      #map { height: 100%;
+            width: 80%; }
+      form {
+        position: relative;
+        left:80%;
+        bottom:100%;
+      }
       
     </style>
 
@@ -12,7 +17,7 @@
   <body>
     <div id="map"></div>
     
-  <form style="background:white border-width:5px" data-bind="submit: addItem">
+  <form data-bind="submit: addItem">
     New item:
     <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
     <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
