@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+
+      
+    </style>
+
+  </head>
+  <body>
+    <div id="map"></div>
+    
+  <form style="background:white border-width:5px" data-bind="submit: addItem">
+    New item:
+    <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+    <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+    <p>Your items:</p>
+    <select multiple="multiple" width="50" data-bind="options: items"> </select>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js">
+   </script>
+   <script src="app.js"></script>
+
+    <script type="text/javascript">
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 53.5527, lng: 10.0070},
+    zoom: 12
+  });
+
+  var marker = new google.maps.Marker({
+    position: {lat: 53.552706, lng: 10.0014},
+    map: map,
+    title: 'Hello World!'
+  });
+
+  var Betahaus = new google.maps.Marker({
+    position: {lat: 53.562737, lng: 9.960122},
+    map: map,
+    title: 'Here is a great coworking office!'
+  });
+
+  var Außenalster = new google.maps.Marker({
+    position: {lat: 53.564734, lng: 10.006526},
+    map: map,
+    title: 'Herrlich!'
+  });
+
+  var MyFavoriteBar = new google.maps.Marker({
+    position: {lat: 53.550290, lng: 9.961271},
+    map: map,
+    title: 'Sommersalon'
+  });
+
+  var TennisTraining = new google.maps.Marker({
+    position: {lat: 53.610135, lng: 10.044216},
+    map: map,
+    title: 'Tennis Witthöft'
+  });
+
+  var Strand = new google.maps.Marker({
+    position: {lat: 53.545275, lng: 9.881932},
+    map: map,
+    title: 'Blankeneser Strand'
+  });
+
+  var Flughafen = new google.maps.Marker({
+    position: {lat: 53.633443, lng: 9.998417},
+    map: map,
+    title: 'Hamburg Flughafen'
+  });
+}
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGU8ZlktmvOi2zRRdjVHoHK20X26D6pTw&callback=initMap">
+    </script>
+     
+  </body>
+</html>
